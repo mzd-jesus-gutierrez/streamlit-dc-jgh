@@ -46,44 +46,39 @@ La aplicación fue desarrollada en Visual Studio Code, publicada en GitHub y des
 
 ## Arquitectura
 
-```text
-                       +-----------------------+
-                       |       Streamlit       |
-                       |       app.py          |
-                       +-----------+-----------+
-                                   |
-                    +--------------+--------------+
-                    |                             |
-                    v                             v
-          +-------------------+         +-------------------+
-          |     Firestore     |         |    PostgreSQL     |
-          |                   |         |                   |
-          | collection:       |         | table:            |
-          | movies            |         | people            |
-          +-------------------+         +-------------------+
+```mermaid
+flowchart TD
+    A["Streamlit<br/>Dashboard · app.py"]
+
+    B["Google Cloud Firestore<br/>Collection: movies"]
+    C["PostgreSQL · Aiven<br/>Table: people"]
+
+    A -->|"Consulta y alta de películas"| B
+    A -->|"Registro y consulta de visitas"| C
 ```
 
 Firestore almacena los datos principales de las películas, mientras que PostgreSQL se utiliza para el libro de visitas.
 
 ## Estructura del proyecto
 
-```text
-movie-dashboard-src/
-|
-|-- app.py
-|-- requirements.txt
-|-- README.md
-|-- .gitignore
-|
-|-- docs/
-|   `-- images/
-|       |-- dashboard-main.jpg
-|       |-- movie-search.jpg
-|       |-- new-movie-form.jpg
-|       `-- guestbook.jpg
-|
-`-- .streamlit/
-    `-- secrets.toml
+```mermaid
+flowchart TD
+    A["movie-dashboard-src/"]
+
+    A --> B["app.py"]
+    A --> C["requirements.txt"]
+    A --> D["README.md"]
+    A --> E[".gitignore"]
+    A --> F["docs/"]
+    A --> G[".streamlit/"]
+
+    F --> H["images/"]
+    H --> I["dashboard-main.jpg"]
+    H --> J["movie-search.jpg"]
+    H --> K["new-movie-form.jpg"]
+    H --> L["guestbook.jpg"]
+
+    G --> M["secrets.toml"]
 ```
 
 > `.streamlit/secrets.toml` contiene credenciales y no debe versionarse ni publicarse en GitHub.
@@ -265,6 +260,6 @@ Aplicación desplegada:
 https://jgh-ds-reto.streamlit.app/
 ```
 
-## Contexto académico
+## Contexto del reto
 
 Proyecto desarrollado para el **Módulo 13 - Desarrollo web para portal de inteligencia analítica**, enfocado en la integración de Streamlit con bases de datos relacionales y no relacionales, así como su despliegue en producción.
