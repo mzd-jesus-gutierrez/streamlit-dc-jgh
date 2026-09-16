@@ -2,9 +2,6 @@
 
 Aplicación web desarrollada con **Python y Streamlit** para consultar y administrar una colección de películas almacenada en **Google Cloud Firestore**, además de registrar y consultar comentarios de visitantes en **PostgreSQL**.
 
-## TL;DR
-
-> [!NOTE]
 > **TL;DR:** Dashboard desarrollado con Streamlit que utiliza Firestore para administrar películas y PostgreSQL para un libro de visitas. Incluye búsqueda, filtros, alta de películas y despliegue en Streamlit Cloud.
 
 ## Descripción
