@@ -1,17 +1,17 @@
 # ---------------------------------------------------------------------------
 # Librerías
 # ---------------------------------------------------------------------------
+import json
 import pandas as pd
 import streamlit as st
 from sqlalchemy import text
 from google.cloud import firestore
-
+from google.oauth2 import service_account # Para la autenticación con Firestore desde json en toml para streamlit "online"
 
 # ---------------------------------------------------------------------------
 # Constantes
 # ---------------------------------------------------------------------------
 ### Constantes de MOVIES
-FIRESTORE_KEY_FILE  = "./keys/data-science-project-key.json"  # Archivo no versionado
 COLLECTION_MOVIES   = "movies"
 # Nombres dentro del collection de movies
 FIELD_NAME          = "name"
@@ -48,7 +48,9 @@ GUEST_LABELS = {
 
 # Acceso a datos
 def create_firestore_connection():
-    return firestore.Client.from_service_account_json(FIRESTORE_KEY_FILE)
+    key_dict    = dict(st.secrets["firestore"])
+    credentials = service_account.Credentials.from_service_account_info(key_dict)
+    return firestore.Client(credentials=credentials, project=key_dict["project_id"])
 
 def create_postgresql_connection():
     return st.connection(POSTGRES_CONNECTION, type="sql")

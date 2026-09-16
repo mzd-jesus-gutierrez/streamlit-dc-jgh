@@ -1,5 +1,2 @@
-movie-env/
-keys/
 .streamlit/secrets.toml
-__pycache__/
-*.pyc
+movie-env/
