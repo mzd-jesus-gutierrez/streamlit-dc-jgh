@@ -4,6 +4,20 @@ Aplicación web desarrollada con **Python y Streamlit** para consultar y adminis
 
 > **TL;DR:** Dashboard desarrollado con Streamlit que utiliza Firestore para administrar películas y PostgreSQL para un libro de visitas. Incluye búsqueda, filtros, alta de películas y despliegue en Streamlit Cloud.
 
+## URLs del proyecto
+
+Repositorio GitHub:
+
+```text
+https://github.com/mzd-jesus-gutierrez/streamlit-dc-jgh
+```
+
+Aplicación desplegada:
+
+```text
+https://jgh-ds-reto.streamlit.app/
+```
+
 ## Descripción
 
 Este proyecto fue desarrollado como parte del **Módulo 13 - Desarrollo web para portal de inteligencia analítica**.
@@ -238,20 +252,6 @@ El archivo `.gitignore` debe excluir, como mínimo:
 ```gitignore
 .streamlit/secrets.toml
 movie-env/
-```
-
-## URLs del proyecto
-
-Repositorio GitHub:
-
-```text
-https://github.com/mzd-jesus-gutierrez/streamlit-dc-jgh
-```
-
-Aplicación desplegada:
-
-```text
-https://jgh-ds-reto.streamlit.app/
 ```
 
 ## Contexto del reto
